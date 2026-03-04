@@ -31,7 +31,7 @@
     /* 発光を控えめに調整 */
     .neon-text-cyan { text-shadow: 0 0 4px rgba(0, 243, 255, 0.8), 0 0 10px rgba(0, 243, 255, 0.4); }
     .neon-text-pink { text-shadow: 0 0 4px rgba(255, 0, 255, 0.8), 0 0 10px rgba(255, 0, 255, 0.4); }
-    .neon-text-yellow { text-shadow: 0 0 4px rgba(204, 255, 0, 0.8), 0 0 10px rgba(204, 255, 0, 0.4); } /* ライムイエロー */
+    .neon-text-yellow { text-shadow: 0 0 4px rgba(204, 255, 0, 0.8), 0 0 10px rgba(204, 255, 0, 0.4); }
     .neon-box-cyan { box-shadow: 0 0 6px rgba(0, 243, 255, 0.4), inset 0 0 2px rgba(0, 243, 255, 0.2); }
     
     /* ボタンのホタル発光アニメーション (6秒ループ) */
@@ -44,9 +44,9 @@
       animation: firefly-glow 6s infinite ease-in-out;
     }
     .btn-firefly:hover {
-      animation: none; /* ホバー時はアニメーションを止める */
+      animation: none;
       box-shadow: 0 0 35px rgba(204, 255, 0, 1), 0 0 15px rgba(204, 255, 0, 0.8) !important;
-      background-color: #d4ff33; /* ホバー時に少し明るいライムに */
+      background-color: #d4ff33;
     }
 
     html, body {
@@ -60,7 +60,6 @@
 
   <!-- ================= HEADER ================= -->
   <header class="fixed top-0 left-0 w-full z-50 px-4 h-[80px] flex justify-between items-center bg-black/40 backdrop-blur-md border-b border-white/10 transition-all duration-300">
-    
     <!-- Logo Area -->
     <img 
       src="icon.PNG" 
@@ -70,7 +69,6 @@
 
     <!-- Right Controls -->
     <div class="flex items-center gap-3">
-      
       <!-- Language Toggle -->
       <div id="btn-lang" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/80 border border-gray-600 cursor-pointer transition-all duration-300 hover:border-cyan-400 hover:shadow-[0_0_8px_rgba(0,243,255,0.6),inset_0_0_3px_rgba(0,243,255,0.3)]">
         <span id="icon-en" class="text-sm transition-opacity duration-300 opacity-100 grayscale-0">🇺🇸</span>
@@ -130,6 +128,7 @@
           </div>
         </div>
 
+        <!-- CRAFTED IN JAPAN (3行・日の丸) -->
         <div class="flex flex-col items-center justify-center w-full mt-10 font-black uppercase text-slate-900 dark:text-white drop-shadow-lg leading-none">
           <div class="w-[85vw] max-w-[320px] sm:max-w-[420px] flex flex-col items-stretch">
             <div class="flex justify-between w-full text-4xl sm:text-5xl mb-2">
@@ -151,14 +150,25 @@
     <!-- ================= COMIC SECTION ================= -->
     <section class="pt-24 pb-8 relative overflow-hidden border-t-2 bg-[#cbd5e1] border-black/10 dark:bg-[#0a0a0a] dark:border-white/10 transition-colors duration-500">
       
-      <div class="px-6 mb-10 text-center relative z-10 flex flex-col items-center justify-center">
-        
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[45%] sm:-translate-y-[50%] pointer-events-none -z-10 flex justify-center items-center w-full overflow-visible">
+      <!-- FHW, CO, MIC の背景文字 -->
+      <div class="absolute top-0 right-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <!-- FHW 中央巨大透かし -->
+        <div class="absolute top-[30%] sm:top-[25%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center items-center w-full overflow-visible opacity-50">
           <div class="text-[55vw] sm:text-[300px] font-black text-black/5 dark:text-white/5 tracking-tighter select-none whitespace-nowrap transform -skew-x-6">
             FHW
           </div>
         </div>
+        <!-- MIC 横倒し -->
+        <div class="absolute top-0 right-0 text-9xl font-black transform rotate-90 translate-x-1/4 -translate-y-1/4 text-black/5 dark:text-white/5 select-none whitespace-nowrap">
+          <span class="opacity-0">CO</span>MIC
+        </div>
+        <!-- CO 普通の向き -->
+        <div class="absolute top-[200px] sm:top-[240px] right-[110px] sm:right-[130px] text-9xl font-black text-black/5 dark:text-white/5 select-none leading-none tracking-tighter">
+          CO
+        </div>
+      </div>
 
+      <div class="px-6 mb-10 text-center relative z-10 flex flex-col items-center justify-center">
         <h2 id="t-comic-title" class="text-[6vw] sm:text-4xl md:text-5xl font-black text-[#ccff00] uppercase transform skew-x-3 mb-2 neon-text-yellow whitespace-nowrap tracking-tighter" style="word-spacing: 0.3em;">
           Too Funky Comic
         </h2>
@@ -258,7 +268,7 @@
           </div>
         </div>
 
-        <!-- カード 5 -->
+        <!-- カード 5 (予告) -->
         <div class="relative w-[80vw] sm:w-[340px] flex-shrink-0 snap-center rounded-[2rem] border-4 border-dashed border-gray-400 dark:border-gray-700 flex flex-col items-center justify-center bg-transparent group p-6">
           <div class="animate-pulse text-gray-400 dark:text-gray-600 mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-20 h-20 sm:w-24 sm:h-24 animate-[spin_8s_linear_infinite]"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
@@ -272,7 +282,7 @@
         <div class="min-w-[5vw] sm:min-w-[100px] flex-shrink-0"></div>
       </div>
 
-      <!-- Swipe Hint Animation -->
+      <!-- Swipe Hint -->
       <div id="swipe-hint" class="mt-4 flex justify-center items-center font-black tracking-widest uppercase text-base text-gray-500 dark:text-gray-400 transition-opacity duration-500 opacity-40 relative z-10">
         <span class="animate-pulse">▶▷▶</span>
         <span id="t-comic-swipe" class="mx-3">SWIPE</span>
@@ -300,8 +310,8 @@
         <!-- ★★★ BACK TO FHW ＆ SNSアイコン群 ★★★ -->
         <div class="mt-16 flex flex-col items-center gap-8 w-full">
           
-          <!-- ★ hrefを修正しました -->
-          <a href="https://p-one-star.github.io/" class="relative px-8 py-3 group cursor-pointer block">
+          <!-- ★ 完全なURLに修正 -->
+          <a href="https://p-one-star.github.io/FUNKY-HOTDOG-WORKS/" class="relative px-8 py-3 group cursor-pointer block">
             <div class="absolute inset-0 border-2 border-gray-500 dark:border-gray-400 transform -skew-x-12 transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.6),inset_0_0_10px_rgba(255,255,255,0.4)]"></div>
             <span class="relative z-10 flex items-center gap-3 font-bold tracking-widest text-gray-500 dark:text-gray-400 uppercase transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -311,6 +321,7 @@
             </span>
           </a>
 
+          <!-- ★ 全てのSNSリンクを完全に設定 -->
           <div class="flex gap-10 mt-2">
             <!-- Instagram -->
             <a href="https://www.instagram.com/fhw_funky_hotdog_works?igsh=MXJ5emptdG1kYndscw%3D%3D&utm_source=qr" target="_blank" class="text-gray-500 dark:text-gray-400 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] hover:scale-110">
@@ -319,7 +330,7 @@
               </svg>
             </a>
             
-            <!-- YouTube (未実装トースト演出) -->
+            <!-- YouTube (トースト通知) -->
             <a href="#" id="btn-youtube" class="text-gray-500 dark:text-gray-400 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.8)] hover:scale-110 cursor-pointer">
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-5.273 3.568z"/>
@@ -432,7 +443,6 @@
       document.getElementById('t-details-btn').innerText = t.details.btn;
       document.getElementById('t-details-back').innerText = t.details.back;
       
-      // トーストの文言更新
       document.getElementById('t-toast-msg').innerText = t.toast;
 
       if (currentLang === 'en') {
@@ -482,19 +492,15 @@
       }
     });
 
-    // ★★★ YouTubeアイコンのトースト演出 ★★★
     const ytBtn = document.getElementById('btn-youtube');
     const toast = document.getElementById('funky-toast');
     let toastTimeout;
 
     ytBtn.addEventListener('click', (e) => {
-      e.preventDefault(); // ページ遷移(ジャンプ)を防ぐ
-      
-      // トーストを表示
+      e.preventDefault();
       toast.classList.remove('opacity-0', 'translate-y-10');
       toast.classList.add('opacity-100', 'translate-y-0');
       
-      // 3秒後に消す
       clearTimeout(toastTimeout);
       toastTimeout = setTimeout(() => {
         toast.classList.remove('opacity-100', 'translate-y-0');
